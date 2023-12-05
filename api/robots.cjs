@@ -1,15 +1,28 @@
 const express = require('express');
 const router = express.Router();
 
-const { getRobots } = require ('../db/robots.cjs');
+const { getRobots, getRobotDetails } = require ('../db/robots.cjs');
 
-router.get('/', async (req, res) => {
+router.get('/', async (req, res, next) => {
   try {
     const allRobots = await getRobots();
     res.send(allRobots);
   }catch(err){
     console.log(err);
   }
+})
+
+//robot details by robotID
+router.get('/:id', async (req, res, next) => {
+  const { id } = req.params;
+  console.log(id)
+  try {
+    const robotDetails = await getRobotDetails(id)
+    res.send(robotDetails);
+  }catch(err){
+    console.log(err);
+  }
+
 })
 
 module.exports = router;

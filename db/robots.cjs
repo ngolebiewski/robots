@@ -18,14 +18,27 @@ const getRobots = async() => {
   const {rows} = await client.query(`
   SELECT * FROM "Robots";
   `)
-  console.log(rows)
   return rows;
   } catch(err){
     console.log(err);
   }
 }
 
+const getRobotDetails = async(id) => {
+  try{
+  const {rows} = await client.query(`
+  SELECT * FROM "Robots"
+  WHERE "RobotID" = ${id} ;
+  `)
+  return rows;
+  } catch(err){
+    console.log(err);
+  }
+}
+
+
 module.exports = {
   createRobot,
-  getRobots
+  getRobots,
+  getRobotDetails
 };

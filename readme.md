@@ -58,4 +58,22 @@ GET
    ]
    ```
 
+   ## /api/v1/robots/:id
+  - GET Robot by ID
+  
+   ```JSON
+   [
+    {
+        "RobotID": 2,
+        "Name": "Flying Robot Legs",
+        "ModelNumber": "XP-123-A",
+        "Company": "Row Bots Inc",
+        "ImageURL": "https://patentimages.storage.googleapis.com/7e/aa/8d/a150badc3c2cdb/US11760478-20230919-D00000.png",
+        "MonthsBeforeBreakdown": 20,
+        "IsSafeAroundChildren": false,
+        "ReleaseDate": "2023-12-04T05:00:00.000Z"
+    }
+  ]
+   ```
+
 
