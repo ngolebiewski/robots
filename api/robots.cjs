@@ -3,6 +3,7 @@ const router = express.Router();
 
 const { getRobots, getRobotDetails } = require ('../db/robots.cjs');
 
+//all robots
 router.get('/', async (req, res, next) => {
   try {
     const allRobots = await getRobots();

@@ -13,33 +13,51 @@ const createTask = async (taskName) => {
   }
 }
 
-const createRobotTask= async (robotID, taskID) => {
+const createRobotTask = async (robotID, taskID) => {
   try {
-    const {rows: [robotTask] } = await client.query(`
+    const { rows: [robotTask] } = await client.query(`
       INSERT INTO "RobotTask" ("RobotID", "TaskID")
       VALUES (${robotID}, ${taskID})
       RETURNING *;
     `)
     return robotTask
-  }catch(err){
+  } catch (err) {
     console.log(err);
   }
 }
 
 const getTasks = async () => {
-  try{
-  const { rows } = await client.query(`
+  try {
+    const { rows } = await client.query(`
     SELECT * FROM "Tasks"
   `);
-  console.log(rows)
-  return rows;
-  }catch(err){
+    return rows;
+  } catch (err) {
     console.log(err);
   }
 }
 
+// SELECT "Robots"."Name", "Robots"."RobotID"
+
+const getRobotsByTask = async (id) => {
+  try {
+    const { rows } = await client.query(`
+  SELECT * FROM "Robots"
+  JOIN "RobotTask" ON "Robots"."RobotID" = "RobotTask"."RobotID"
+    WHERE "RobotTask"."TaskID" = ${id};
+  `);
+  console.log(rows);
+    return rows;
+  } catch (err) {
+    console.log(err);
+  }
+}
+
+
+
 module.exports = {
   createTask,
   createRobotTask,
-  getTasks
+  getTasks,
+  getRobotsByTask
 }

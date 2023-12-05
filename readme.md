@@ -75,5 +75,23 @@ GET
     }
   ]
    ```
-
+## /api/v1/tasks/:id
+  - GET Robots by Task ID
+    - Returns an array of Robots (Objects) that are assigned the TaskID via the RobotTask join table.
+  ```JSON
+  [
+    {
+        "RobotID": 1,
+        "Name": "Seer of Truth",
+        "ModelNumber": "XBOT-3458-XX-12",
+        "Company": "eXplora-Bots",
+        "ImageURL": "https://patentimages.storage.googleapis.com/27/5b/c5/6d60053f194fc2/US08346390-20130101-D00000.png",
+        "MonthsBeforeBreakdown": 1,
+        "IsSafeAroundChildren": true,
+        "ReleaseDate": "2012-10-05T04:00:00.000Z",
+        "TaskID": 4
+    }
+  ]
+```
+  
 
