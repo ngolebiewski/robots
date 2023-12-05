@@ -1,0 +1,18 @@
+const client = require('./client.cjs');
+
+const createRobot = async (name, modelNumber, company, imageURL, monthsBeforeBreakdown, isSafeAroundChildren, releaseDate) => {
+  try {
+    const { rows: [robot] } = await client.query(
+      `INSERT INTO "Robots" ("Name", "ModelNumber", "Company", "ImageURL", "MonthsBeforeBreakdown", "IsSafeAroundChildren", "ReleaseDate")
+        VALUES ('${name}', '${modelNumber}', '${company}', '${imageURL}', ${monthsBeforeBreakdown}, ${isSafeAroundChildren}, '${releaseDate}')
+        RETURNING *;
+      `);
+    return robot;
+  } catch (err) {
+    console.log(err);
+  }
+}
+
+module.exports = {
+  createRobot
+};
