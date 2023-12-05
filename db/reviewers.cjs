@@ -24,7 +24,6 @@ const createRobotReviewer = async (robotID, reviewerID) => {
   }catch(err){
     console.log(err);
   }
-
 }
 
 module.exports = {

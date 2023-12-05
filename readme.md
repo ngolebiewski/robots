@@ -13,7 +13,7 @@ GET
 ## /api/v1/robots
   - GET an object with all Robots
     -returns an array wih Robot objects inside
-    ```
+    ```JSON
     [
     {
         "RobotID": 1,
@@ -42,7 +42,7 @@ GET
 ## /api/v1/tasks
   - GET all Tasks
     - Returns an array with task objects inside
-   ```
+   ```JSON
    [
     {
         "TaskID": 1,
