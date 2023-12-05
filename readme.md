@@ -93,5 +93,27 @@ GET
     }
   ]
 ```
+
+## /api/v1/reviewers/:robotID
+  - GET Reviewers by Robot ID
+    - Returns an array of Reviewers (Objects) that are assigned the RoboID via the RobotTask join table.
+  ```JSON
+  [
+    {
+        "ReviewerID": 1,
+        "ReviewerEmail": "w@notreal.com",
+        "ReviewerName": "Walt Wiseman",
+        "ReviewerPhone": 1234567890,
+        "RobotID": 2
+    },
+    {
+        "ReviewerID": 3,
+        "ReviewerEmail": "betsy@library.org",
+        "ReviewerName": "Betsy Bloomingdale",
+        "ReviewerPhone": 1234567890,
+        "RobotID": 2
+    }
+]
+```
   
 

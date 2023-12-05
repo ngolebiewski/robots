@@ -8,7 +8,6 @@ router.get('/:robotID', async (req, res, next) => {
   console.log(robotID)
   try {
     const data = await getReviewersByRobotID(robotID);
-    console.log(data)
     res.send(data);
   }catch(err){
     console.log(err);
