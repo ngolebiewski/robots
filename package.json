@@ -2,7 +2,7 @@
   "name": "robots",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.cjs",
   "scripts": {
     "seed": "node db/seed.cjs",
     "seed:dev": "nodemon db/seed.cjs",
