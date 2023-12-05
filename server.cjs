@@ -14,9 +14,9 @@ app.listen(PORT, () => {
 });
 
 app.get("/", (req, res, next) => {
-  res.send('<h1>Hello World!</h1>');
+  res.send('<h1>Hello Robots!</h1>');
 });
 
 
-app.use('/api/v1', require('./api/index.js'));
+app.use('/api/v1', require('./api/index.cjs'));
 

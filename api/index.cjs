@@ -1,10 +1,9 @@
 const express = require('express');
 const router = express.Router();
 
-console.log('in index.js')
 
-router.use('/robots', require('./robots.js'));
-router.use('/tasks', require('./tasks.js'));
+router.use('/robots', require('./robots.cjs'));
+router.use('/tasks', require('./tasks.cjs'));
 module.exports = router;
 
 
