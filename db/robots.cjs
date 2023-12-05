@@ -13,6 +13,19 @@ const createRobot = async (name, modelNumber, company, imageURL, monthsBeforeBre
   }
 }
 
+const getRobots = async() => {
+  try{
+  const {rows} = await client.query(`
+  SELECT * FROM "Robots";
+  `)
+  console.log(rows)
+  return rows;
+  } catch(err){
+    console.log(err);
+  }
+}
+
 module.exports = {
-  createRobot
+  createRobot,
+  getRobots
 };

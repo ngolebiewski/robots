@@ -26,7 +26,20 @@ const createRobotTask= async (robotID, taskID) => {
   }
 }
 
+const getTasks = async () => {
+  try{
+  const { rows } = await client.query(`
+    SELECT * FROM "Tasks"
+  `);
+  console.log(rows)
+  return rows;
+  }catch(err){
+    console.log(err);
+  }
+}
+
 module.exports = {
   createTask,
-  createRobotTask
+  createRobotTask,
+  getTasks
 }
