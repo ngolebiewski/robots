@@ -13,6 +13,20 @@ const createTask = async (taskName) => {
   }
 }
 
+const createRobotTask= async (robotID, taskID) => {
+  try {
+    const {rows: [robotTask] } = await client.query(`
+      INSERT INTO "RobotTask" ("RobotID", "TaskID")
+      VALUES (${robotID}, ${taskID})
+      RETURNING *;
+    `)
+    return robotTask
+  }catch(err){
+    console.log(err);
+  }
+}
+
 module.exports = {
-  createTask
+  createTask,
+  createRobotTask
 }

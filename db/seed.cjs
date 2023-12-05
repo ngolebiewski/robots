@@ -1,7 +1,7 @@
 const client = require('./client.cjs');
 const { createRobot } = require('./robots.cjs');
-const { createReviewer } = require('./reviewers.cjs');
-const { createTask } = require('./tasks.cjs');
+const { createReviewer, createRobotReviewer } = require('./reviewers.cjs');
+const { createTask, createRobotTask } = require('./tasks.cjs');
 
 const dropTables = async () => {
 
@@ -88,12 +88,42 @@ const syncAndSeed = async () => {
   console.log(`Reviewer Seeds Added`);
 
   // For...of to loop this simple array for seeding tasks via --> https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of
-  const tasks = ['Seeing', 'Assembling', 'Dishes', 'Dog Walking', 'Flying', 'Human Companionship', 'Underwater Exploration']
+  const tasks = ['Seeing', 'Ikea Furniture Assembly', 'Dishes', 'Dog Walking', 'Flying', 'Human Companionship', 'Underwater Exploration']
   for (const task of tasks) await createTask(task);
   console.log(`Added Tasks`);
 
-  //Create 
+  await createRobotReviewer(1,1);
+  await createRobotReviewer(2,1);
+  await createRobotReviewer(2,3);
+  await createRobotReviewer(3,1);
+  await createRobotReviewer(3,2);
+  await createRobotReviewer(4,1);
+  await createRobotReviewer(4,2);
+  await createRobotReviewer(4,3);
+  console.log('Added Robot Reviews')
 
+  await createRobotTask(1,1);
+  await createRobotTask(1,6);
+  await createRobotTask(1,2);
+  await createRobotTask(1,4);
+  //
+  await createRobotTask(2,5);
+  await createRobotTask(2,2);
+  await createRobotTask(2,1);
+  //
+  await createRobotTask(3,6);
+  await createRobotTask(3,2);
+  await createRobotTask(3,1);
+  //
+  await createRobotTask(4,7);
+  await createRobotTask(4,1);
+  //
+  await createRobotTask(5,3);
+  await createRobotTask(5,2);
+  console.log('seeded RobotTasks!')
+
+  //add client.end statement?
+  client.end();
 }
 
 syncAndSeed();
