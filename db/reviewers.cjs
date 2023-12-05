@@ -26,7 +26,23 @@ const createRobotReviewer = async (robotID, reviewerID) => {
   }
 }
 
+const getReviewersByRobotID = async(robotID) => {
+  try {
+    console.log('in the db function')
+    const { rows } = await client.query(`
+    SELECT * FROM "Reviewers"
+    JOIN "RobotReviewer" ON "Reviewers"."ReviewerID" = "RobotReviewer"."ReviewerID"
+    WHERE "RobotReviewer"."RobotID" = ${robotID};
+     `);
+  console.log(rows);
+    return rows;
+  } catch (err) {
+    console.log(err);
+  }
+}
+
 module.exports = {
   createReviewer,
-  createRobotReviewer
+  createRobotReviewer,
+  getReviewersByRobotID
 }
