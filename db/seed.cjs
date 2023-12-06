@@ -122,7 +122,7 @@ const syncAndSeed = async () => {
   await createRobotTask(5,2);
   console.log('seeded RobotTasks!')
 
-  //add client.end statement?
+  //add client.end statement
   client.end();
 }
 
