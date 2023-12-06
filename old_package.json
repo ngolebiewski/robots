@@ -1,0 +1,23 @@
+{
+  "name": "robots",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.cjs",
+  "scripts": {
+    "seed": "node db/seed.cjs",
+    "seed:dev": "nodemon db/seed.cjs",
+    "start:dev": "nodemon server.cjs",
+    "start": "node server.cjs",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "nodemon": "^3.0.2",
+    "pg": "^8.11.3",
+    "vite": "^5.0.6"
+  }
+}
